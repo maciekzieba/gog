@@ -33,7 +33,7 @@ class Product implements \JsonSerializable
     /**
      * @var integer
      *
-     * @ORM\Column(name="price", type="decimal", precision=2, nullable=false)
+     * @ORM\Column(name="price", type="decimal", precision=10, scale=2, nullable=false)
      * @Assert\NotBlank()
      * @Assert\GreaterThanOrEqual(0)
      */
