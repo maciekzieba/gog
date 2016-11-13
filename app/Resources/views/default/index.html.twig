@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table" id="productsTable">
+                <thead>
+                    <tr><th>Id</th><th>Name</th><th>Price</th><th>Actions</th></tr>
+                </thead>
+                <tbody id="productsBody">
+
+                </tbody>
+
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table id="cart">
+
+            </table>
+        </div>
+    </div>
+
+    <script>
+        var cartId;
+        $( document ).ready(function() {
+            loadProducts();
+            createCart();
+        });
+
+        function createCart() {
+            var request = $.ajax({
+                url: "/api/cart",
+                method: "POST",
+                data: {},
+                dataType: "json"
+            });
+            request.done(function(data){
+                cartId = data.id;
+                renderCart(data);
+            });
+            request.fail(function(data){
+                alert('Error');
+            });
+        }
+
+        function loadProducts() {
+            var request = $.ajax({
+                url: "/api/products",
+                method: "GET",
+                data: {},
+                dataType: "json"
+            });
+            request.done(function(data){
+                console.log(data);
+                for (var i in data.products) {
+                    var product = data.products[i];
+                    $('#productsBody').append('<tr><td>'+product.id+'</td><td>'+product.title+'</td><td>'+product.price+'</td><td><a class="btn btn-success" href="" onclick="addToCart('+product.id+'); return false;">Add to cart</a></td></tr>');
+                }
+            });
+            request.fail(function(data){
+                alert('Error');
+            });
+        }
+
+        function renderCart(data) {
+            $('#cart').html('');
+            var itemsHtml = '<tbody>';
+            console.log(data.items);
+            for (var i in data.items) {
+                var item = data.items[i];
+                console.log("dadas",item);
+                itemsHtml += '<tr><td>'+item.productTitle+'</td><td>'+item.productPrice+'</td></tr>';
+            }
+            itemsHtml += '</tbody>';
+            $('#cart').append(itemsHtml);
+            $('#cart').append('<tfoot><tr><td>Sum</td><th>'+data.itemsSum+'</th></tr><tr><td>Count</td><th>'+data.itemsCount+'</th></tr></tfoot>');
+
+        }
+
+        function addToCart(productId) {
+            if (cartId) {
+                var request = $.ajax({
+                    url: "/api/cart/"+cartId+"/product/"+productId,
+                    method: "PUT",
+                    data: {},
+                    dataType: "json"
+                });
+                request.done(function(data){
+                    renderCart(data);
+                });
+                request.fail(function(data){
+                    alert('Error');
+                });
+            }
+        }
+    </script>
+{% endblock %}

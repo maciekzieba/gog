@@ -1,0 +1,10 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+mz_shop:
+    resource: "@MzShopBundle/Controller/"
+    type:     annotation
+    prefix:   /api
+
+
