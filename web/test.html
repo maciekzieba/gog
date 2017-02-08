@@ -1,1 +1,325 @@
+<!DOCTYPE html><html class="native-mode prices-in-pln lang--en curr-symbol-after "
+        ng-app="gog"
+        lang="en"
+    ><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>
+        Work with us as Senior Software Engineer - Desktop (C++) - GOG.com		</title><meta name="viewport" content="width=device-width"><meta name="routes_allowed:0" content="frontpage"><meta name="routes_allowed:1" content="gog_plugin_galaxy_landing_page_homepage"><meta name="routes_allowed:2" content="gog_website_promo_divinity_hero_homepage"><meta name="routes_allowed:3" content="gog_website_promo_summer2016_promo_xp_page"><meta name="description" content="Download the best classic and new games on Windows, Mac &amp; Linux. A vast selection of titles, DRM-free, with free goodies and 30-day money-back guarantee."><meta name="fb:app_id" content="132032436846771"><meta property="og:type" content="game"><meta property="og:site_name" content="GOG.com"><meta property="og:title" content="Work with us - GOG.com"><meta property="og:url" content="www.gog.com"><meta property="og:image" content="https://images.gog.com/844bac20026bcb6faf3d308fe9ad38365b3df6d1b5c4b74d0db309b426c997c5.jpg"><meta property="og:description" content="Here at GOG.com, we work hard to bring all that is good in gaming to our players - DRM-free and with lots of extra goodies, for Windows, Mac and Linux – by joining our team you too can have an impact on the games industry."><meta name="keywords" content=""><link rel="shortcut icon" href="/favicon.ico?3"><link rel="apple-touch-icon" href="/apple-touch-icon-57x57.png" sizes="57x57"><link rel="apple-touch-icon" href="/apple-touch-icon-72x72.png" sizes="72x72"><link rel="apple-touch-icon" href="/apple-touch-icon-76x76.png" sizes="76x76"><link rel="apple-touch-icon" href="/apple-touch-icon-114x114.png" sizes="114x114"><link rel="apple-touch-icon" href="/apple-touch-icon-120x120.png" sizes="120x120"><link rel="apple-touch-icon" href="/apple-touch-icon-144x144.png" sizes="144x144"><link rel="apple-touch-icon" href="/apple-touch-icon-152x152.png" sizes="152x152"><link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" sizes="180x180"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="alternate" type="application/rss+xml" title="GOG.com news" href="https://www.gog.com/news/feed" /><style type="text/css">
+            [ng-cloak], .ng-cloak, .ng-hide { display:none !important; }
+        </style><link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet'><link rel="stylesheet" href="//www.gog.com/www/default/-css/_http_default.v1.css" type="text/css" charset="utf-8" /><link href="//www4-static1.gog.com/css/c1c5c90-eb21be2.css" rel="stylesheet"><style type="text/css">[gog-mosaic-ending-soon-link]{display:none !important;}@media(max-width:480px){.product-takeover{min-height:0;}}.ultimate-price__discount-prefix{display:none;}.product-takeover__logo{max-width:90%}</style></head><body
+        ng-init="userModel = {isUser: false, isAnonymous: false, bodyClass:false}; bodyModel = {bodyClass: ''}"
+        ng-class="{'is-user':userModel.isUser, 'is-anonymous':userModel.isAnonymous}"
+        class="{{ bodyModel.bodyClass }} "
+        gog-string-format
+            ><div class="universe"><nav class="top-nav test" ng-class="getNavClass()" ng-controller="navCtrl" gog-css-data="50"><var class="css-data-holder"></var><i class="ic top-nav__icon top-nav-off-icon icon-list show-on-off-canvas" ng-click="toggleTopNavState(1)"></i><span
+                class="top-nav-off-cart show-on-off-canvas"
+        ng-click="offCanvasCartToggle()"
+                hook-test="topNavCart"
+    ><i class="ic top-nav__icon top-nav-off-icon icon-cart"></i><span class="top-nav-off-cart-count" ng-cloak>{{ cartCount }}</span></span><a href="/" class="top-nav-small-logo show-on-off-canvas"></a><div class="top-nav__inner container"><div class="top-nav__container top-nav__container--cart"><div
+    ng-controller="cartCtrl"
+    class="top-nav__results top-nav__results--cart _dropdown is-contracted ng-hide--safe force-open"
+    ng-cloak
+    gog-dropdown
+    gog-dropdown-offcanvas="2"
+    gog-dropdown-group="cartDropdown"
+    gog-css-data
+    
+    gog-dropdown-close="{{ isCartEmpty }}"
+    
+><var class="css-data-holder"></var><div class="top-nav-cart__header _dropdown__item-unobtrusive"><a class="top-nav-cart__btn btn btn--green"
+           ng-click="goToCheckout()"
+           ng-hide="showSpinner"
+        >
+            CHECKOUT NOW
+        </a><a class="top-nav-cart__btn btn btn--green is-spinning"
+           ng-show="showSpinner"
+        >
+            CHECKOUT NOW
+        </a><div class="top-nav-cart__price" ng-hide="showSpinner"><span class="top-nav-cart__price-items"> {{cartCount}} 
+                <ng-pluralize count="cartCount" when="{
+                    'one' : 'ITEM',
+                    'few' : 'items',
+                    'many' : 'items',
+                    'other': 'items'
+                 }"></ng-pluralize></span><span class="top-nav-cart__price-amount _price"
+                  ng-show="cartCount && !cartTotalPrice.isZero"
+                  ng-bind="cartTotalPrice.amount"
+            ></span><span class="top-nav-cart__price-amount" ng-show="cartCount && cartTotalPrice.isZero">Free</span></div></div><div
+		class="product-state-holder product-row top-nav-res__item _dropdown__item-unobtrusive"
+		
+                gog-product="{{ ::product.id }}"
+            
+		ng-repeat="product in products track by product.id"
+			><div class="product-row__price product-row__alignment"><span ng-show="product.price.isFree" ng-cloak         class="price-text">Free</span><span ng-show="!product.price.isFree"
+      ng-bind="product.price.amount"
+      class="_price"
+      class="price-text"
+></span></div><div class="product-row__link"><a href=""
+                    ng-href="{{ ::product.url }}"
+                    class="product-row__picture"
+                ><img class="product-row__img"
+                                                                                            ng-srcset="{{ :: product.image | image:100:&#039;jpg&#039; }} , {{ :: product.image | image:200:&#039;jpg&#039; }} 2x"
+                    					
+                    alt="{{product.title}}"
+					
+                /></a><div class="product-row__discount product-row__alignment product-state__discount"><span class="price-text--discount"><span ng-bind="product.price.discountPercentage">0</span>%</span></div><div class="product-row__text"><div class="product-row__content"><div class="product-row__content-in"
+											><div class="product-row__title"><div class="product-title" ng-if="true"><span class="product-title__text"
+            ng-bind="::product.title | uppercase"
+        ></span></div></div><div class="product-row__info top-nav-cart-options"><span ng-show="!product.isOwned && !product.isWishlisted"
+                      ng-click="productCtrl.removeFromCart(); productCtrl.addToWishlist(); $event.preventDefault()"
+                      class="un top-nav-cart-option"
+                >
+                    Move to wishlist
+                </span><span ng-click="productCtrl.removeFromCart(); $event.preventDefault();"
+                      class="un top-nav-cart-option">
+                    Remove
+                </span></div></div></div></div></div></div></div><!-- top-nav__results--cart --></div><!-- top-nav__container--cart --><div class="top-nav__container top-nav__container--nav cf"><a class="top-nav__home"
+               href="/"
+               target="_self"
+            ><div class="top-nav__logo"></div></a><div class="top-nav__extras hide-on-off-canvas" ng-class="{ 'has-social' : topNav.socialCount }"><div class="top-nav-extras-search-holder"><div class="top-nav-extras-search"
+                         gog-dropdown-toggle="navSearchDropdown"
+                         ng-click="onSearchOpen()"
+                         hook-test="topNavSearch"
+                    ><i class="ic icon-search top-nav__icon"></i> Search
+                        <i class="_dropdown__pointer-up _dropdown__pointer--light"></i></div></div><div
+                                        class="top-nav__cart-social"
+                                        hook-test="topNavCart"
+                    ng-cloak
+                ><div class="top-nav__cart" ng-show="cartCount" gog-dropdown-toggle="cartDropdown"><i class="ic icon-cart top-nav__icon"></i><span class="top-nav__count" ng-bind="' ' + cartCount"></span><i class="_dropdown__pointer-up _dropdown__pointer--light"></i></div><div class="top-nav__cart top-nav__cart--empty" ng-hide="cartCount"><i class="ic icon-cart top-nav__icon"></i><span class="top-nav__count"> 0 </span></div></div></div><!-- top-nav__extras --><div class="_dropdown top-nav__results is-contracted top-nav__results--search" ng-cloak
+     ng-controller="navSearchCtrl"
+     gog-nav-search-key gog-dropdown gog-dropdown-group="navSearchDropdown"
+     gog-dropdown-offcanvas="1"
+     gog-css-data
+><var class="css-data-holder"></var><div class="_dropdown__item-unobtrusive"><div class="top-nav-search-holder"><div class="top-nav-search _search"
+                     gog-search="searchTerm"
+                     ng-class="{ 'is-spinning' : is_loading }"><input type="search" class="top-nav-search__input _search__input js-nav-search-input"
+                           ng-model="searchTerm" gog-focus-me="navSearchOpen" ng-focus="topNav.setTopNavState(4)"
+                           ng-model-options="{ debounce: {'default': 300} }"
+                           hook-test="topNavSearchInput"
+                    ><i class="ic icon-search _search__icon top-nav-search__icon"></i><i class="ic icon-clear _search__clear no-hl top-nav-search__clear"></i><i class="spinner _search__spinner show-on-off-canvas"></i><i class="spinner _search__spinner hide-on-off-canvas"></i></div></div><div class="top-nav-res__category-holder"><!-- micro ng --><div
+		class="product-state-holder product-row top-nav-res__item js-is-focusable product-row--micro"
+				
+		gog-product="{{ searchProduct.id }}"
+		
+	
+				ng-repeat="searchProduct in results | limitTo: maxResultsToShow"
+	
+			><div class="product-row__price product-row__alignment"><div class="product-state__price-btn price-btn
+                  price-btn--active"
+											ng-click="blockCartFlash(); productCtrl.addToCart()"                                                    gog-track-event="{event:'addToCart',wayAddToCart:'Price'}"
+                        					                 ng-class="{
+                 	'price-btn--in-cart' : product.inCart,
+                 	'price-btn--free': product.price.isFree
+                 }"
+                             ><span class="price-btn__text "><span class="product-status__in-cart"><i class="ic icon-cart"></i></span><span class="product-state__is-tba">
+                        TBA                    </span><span class="price-btn__text--owned product-state__is-owned">
+						owned					</span><span class="product-state__is-free">
+						Free					</span><span class="_price product-state__price" ng-bind="product.price.amount"></span></span></div></div><a
+        		ng-href="{{ ::product.url }}"
+		class="product-row__link"
+					><div class="product-row__discount product-row__alignment product-state__discount"><span class="price-text--discount"><span ng-bind="product.price.discountPercentage">0</span>%</span></div><div class="product-row__text"><div class="product-row__content"><div class="product-row__content-in"
+											><div class="product-row__title"><div class="product-title" ng-if="!product.isComingSoon &amp;&amp; !product.isWishlisted &amp;&amp; !product.isInDevelopment"><span class="product-title__text"
+            ng-bind="::product.title | uppercase"
+        ></span></div><div class="product-title product-title--flagged"
+		     ng-if="product.isComingSoon || product.isWishlisted || product.isInDevelopment"
+			 ng-cloak
 
+		     gog-labeled-title='{
+                "maxLineNumber": 2,
+                "title": "{{ ::product.title | uppercase }}"
+             }'
+        ><span class="product-title__text"
+                ng-bind="::product.title | uppercase"
+            ></span><span class="product-title__flags"><i ng-if="product.isWishlisted"
+                           class="_product-flag product-title__icon ic icon-heart"
+                        ></i><span ng-if="product.isComingSoon"
+                              class="_product-flag product-title__flag product-title__flag--soon"
+                        >Soon</span><span ng-if="product.isInDevelopment"
+                              class="_product-flag product-title__flag product-title__flag--in-dev"
+                        >IN DEV</span></span></div></div></div></div></div></a></div></div><!-- nav-results__category-holder --><a ng-href="/games?search={{ searchTerm | encodeURIComponent }}" class="top-nav-res__category top-nav-res__item top-nav-res__item--all _dropdown__force-toggle js-is-focusable js-nav-search-link" ng-show="showGamesLink()">
+                
+				all games ({{totalGames}})
+			</a><a ng-href="/movies?search={{ searchTerm | encodeURIComponent }}" class="top-nav-res__category top-nav-res__item top-nav-res__item--all _dropdown__force-toggle js-is-focusable js-nav-search-link" ng-show="showMoviesLink()">
+                ALL MOVIES ({{totalMovies}})
+			</a><div class="top-nav-res__category top-nav-res__item top-nav-res__item--none" ng-show="showNoResults()">
+				No results found.			</div><a href="/games" class="top-nav-res__category top-nav-res__item top-nav-res__item--none js-is-focusable" ng-show="showNoResults()">
+				BROWSE ALL GAMES			</a><a href="/movies" class="top-nav-res__category top-nav-res__item top-nav-res__item--none js-is-focusable" ng-show="showNoResults()">
+				BROWSE ALL MOVIES			</a></div></div><!-- nav-results--search --><div class="top-nav__items"><div class="top-nav__item top-nav__item--1  _dropdown top-nav__dropdown--games is-contracted"
+                     gog-dropdown="75"
+                     gog-css-data
+                ><a href="/games" class="_dropdown__toggle" hook-test="topNavGames">Games</a><div class="top-nav__dd-items _dropdown__items hide-on-off-canvas" ng-cloak><a class="top-nav__dd-item _dropdown__item" href="/games/action">Action</a><a class="top-nav__dd-item _dropdown__item" href="/games/adventure">Adventure</a><a class="top-nav__dd-item _dropdown__item" href="/games/indie">Indie</a><a class="top-nav__dd-item _dropdown__item" href="/games/sports">Sports</a><a class="top-nav__dd-item _dropdown__item" href="/games/role-playing">Role-playing</a><a class="top-nav__dd-item _dropdown__item" href="/games/shooter">Shooter</a><a class="top-nav__dd-item _dropdown__item" href="/games/simulation">Simulation</a><a class="top-nav__dd-item _dropdown__item" href="/games/strategy">Strategy</a><a class="top-nav__dd-item _dropdown__item" href="/games/mac">MAC GAMES</a><a class="top-nav__dd-item _dropdown__item" href="/games/linux">LINUX GAMES</a></div><var class="css-data-holder"></var></div><a href="/movies" class="top-nav__item top-nav__item--2  " hook-test="topNavMovies">
+                    Movies
+                </a><a href="/forum" class="top-nav__item top-nav__item--3 ">
+                    Community
+                </a><a href="/support" class="top-nav__item top-nav__item--4 ">
+                    Support
+                </a><div class="top-nav__item top-nav__item--5 top-nav__item--empty" ng-hide="isPersonalized"></div><div class="top-nav__item top-nav__item--5  _dropdown top-nav__dropdown--account is-contracted"
+                     ng-cloak
+                     ng-if="userModel.isUser"
+                     gog-dropdown="250"
+                     gog-dropdown-offcanvas="1"
+                     gog-css-data
+                     ng-controller="notificationsCtrl as notifications"
+                     hook-test="topNavAccount"
+                ><a class="_dropdown__toggle" href="/account" >
+                        Account
+                        <span ng-show="notifications.has.total" ng-cloak class="top-nav__item-count" ng-bind="notifications.total"></span></a><div class="top-nav__dd-items _dropdown__items" ng-cloak><a class="top-nav__dd-item _dropdown__item"
+                           href="/account"
+                           hook-test="topNavAccountLibrary"
+                        ><span ng-show="notifications.has.productUpdates" ng-cloak class="top-nav__item-count"
+                                  ng-bind="notifications.productUpdates"
+                            ></span>
+                            Library
+                        </a><a class="top-nav__dd-item _dropdown__item"
+                           href="/account/wishlist"
+                           hook-test="topNavAccountWishlist"
+                        >Wishlist</a><a href="/account/friends"
+                           class="top-nav__dd-item _dropdown__item"
+                           hook-test="topNavAccountFriends"
+                        ><span ng-show="notifications.has.friendRequests" class="top-nav__item-count"
+                                  ng-bind="notifications.friendRequests"
+                            ></span>
+                            Friends
+                        </a><a href="/account/chat"
+                           class="top-nav__dd-item _dropdown__item"
+                           hook-test="topNavAccountChat"
+                        ><span ng-show="notifications.has.chatMessages" class="top-nav__item-count"
+                                  ng-bind="notifications.chatMessages"
+                            ></span>
+                            Chat
+                        </a><a href="/forum/myrecentposts"
+                           class="top-nav__dd-item _dropdown__item"
+                        ><span ng-show="notifications.has.forumUpdates"
+                                  ng-bind="notifications.forumUpdates"
+                                  class="top-nav__item-count"
+                            ></span>
+                            Forum Replies
+                        </a><a href="/account/settings"
+                            gog-href-swapper="/account/settings/orders"
+                            gog-css-data
+                            class="top-nav__dd-item _dropdown__item"
+                            hook-test="topNavAccountOrders"
+                        >
+                            Orders &amp; Settings
+                            <var class="css-data-holder css-data-holder--user-settings"></var></a><a href="/wallet"
+                               gog-href-swapper="/wallet"
+                               class="top-nav__dd-item _dropdown__item"
+                            >
+                                Wallet
+                            </a><a class="top-nav__dd-item _dropdown__item"
+                           ng-click="logout()"
+                           hook-test="topNavAccountLogout"
+                        >
+                            Logout
+                        </a></div><var class="css-data-holder"></var></div><div class="top-nav__item top-nav__item--5 top-nav__login"
+                     ng-cloak
+                     ng-show="userModel.isAnonymous"
+                ><div class="top-nav__login-inner"><div class="top-nav__login-content"><a class="top-nav-login-btn top-nav-login-btn--signup btn"
+                               ng-click="openRegistration()"
+                               hook-test="topNavSignup"
+                            >Sign up</a><a class="top-nav-login-btn btn"
+                               ng-click="openLogin()"
+                               hook-test="topNavLogin"
+                            >Log in</a></div></div></div></div></div><!-- container --></div><!-- top-nav__inner --></nav><!-- top-nav --><div class="curl-top"></div><div class="wrapper"><div class="sta_container lots-of-offers content"><div class="header"><h1>Shape your career with GOG.com</h1><h2>Here at GOG.com we combine work with passion for gaming to offer our customers the greatest selection of PC, Mac and Linux games, both classics and day-one titles, always DRM-free, with lots of extra goodies and amazing customer support.</h2><h2>But GOG.com is more than just a place to buy games. In addition to nearly a thousand games and never-ending promotions, we’re building GOG.com Galaxy: a truly gamer-friendly online gaming platform, to offer our community online multiplayer, convenient game updating and the option to stay in touch with friends.</h2><h2>What makes us stand out is that we listen and react to our communities’ suggestions and we’re determined to keep working towards our goal of bringing all that is good in gaming to everyone. </h2><h2>More than 300 companies from around the globe cooperate with us, this includes the following:</h2><br><br><img src="//www4-static2.gog.com/bundles/gogwebsitework/img/head-logos.png" alt=""/></div><div class="relative"><div class="menus"><div class="sub-menu"><h3 class="sub-menu__header">About</h3><a class="sub-menu__item js--mentality js-submenu-item" href="/work#gog_mentality"><span class="vdark_un">The GOG.com Mentality</span></a><a class="sub-menu__item js--warsaw" href="/work#warsaw"><span class="vdark_un">Warsaw</span></a><h3 class="sub-menu__header">Job Offers</h3><h4 class="offers-category">Art</h4><a class="sub-menu__item js-submenu-item" href="/work/art-graphic-designer"><span class="vdark_un">Graphic Designer</span></a><h4 class="offers-category">WEBSITE</h4><a class="sub-menu__item js-submenu-item" href="/work/website-web-developer-php"><span class="vdark_un">Web Developer (PHP)</span></a><a class="sub-menu__item js-submenu-item" href="/work/website-junior-web-developer-php"><span class="vdark_un">Junior Web Developer (PHP)</span></a><a class="sub-menu__item js-submenu-item" href="/work/website-front-end-developer"><span class="vdark_un">Front-end Developer</span></a><a class="sub-menu__item js-submenu-item" href="/work/website-web-designer"><span class="vdark_un">Web Designer</span></a><a class="sub-menu__item js-submenu-item" href="/work/website-lead-web-designer"><span class="vdark_un">Lead Web Designer</span></a><h4 class="offers-category">BUSINESS INTELLIGENCE</h4><a class="sub-menu__item js-submenu-item" href="/work/business-intelligence-web-developer-php"><span class="vdark_un">Web Developer (PHP)</span></a><a class="sub-menu__item js-submenu-item" href="/work/business-intelligence-big-data-implementation-lead"><span class="vdark_un">Big Data Implementation Lead</span></a><h4 class="offers-category">GALAXY</h4><a class="sub-menu__item js-submenu-item" href="/work/galaxy-web-developer-php"><span class="vdark_un">Web Developer (PHP)</span></a><a class="sub-menu__item js-submenu-item" href="/work/galaxy-cyberpunk-2077-web-developer-java"><span class="vdark_un">Cyberpunk 2077 Web Developer (Java)</span></a><a class="sub-menu__item js-submenu-item" href="/work/galaxy-gwent-web-developer-php"><span class="vdark_un">GWENT Web Developer (PHP)</span></a><a class="sub-menu__item js-submenu-item" href="/work/galaxy-senior-software-engineer-desktop-cpp"><span class="vdark_un">Senior Software Engineer - Desktop (C++)</span></a><a class="sub-menu__item js-submenu-item" href="/work/galaxy-senior-software-engineer-sdk-cpp"><span class="vdark_un">Senior Software Engineer - SDK (C++)</span></a><a class="sub-menu__item js-submenu-item" href="/work/galaxy-senior-system-engineer-cpp"><span class="vdark_un">Senior System Engineer (C++)</span></a><a class="sub-menu__item js-submenu-item" href="/work/galaxy-senior-rendering-engineer"><span class="vdark_un">Senior Rendering Engineer</span></a><a class="sub-menu__item js-submenu-item" href="/work/galaxy-junior-software-engineer-sdk-cpp"><span class="vdark_un">Junior Software Engineer - SDK (C++)</span></a><h4 class="offers-category">PRODUCT</h4><a class="sub-menu__item js-submenu-item" href="/work/product-tech-programmer"><span class="vdark_un">Tech Programmer</span></a><a class="sub-menu__item js-submenu-item" href="/work/product-product-specialist"><span class="vdark_un">Product Specialist</span></a><a class="sub-menu__item js-submenu-item" href="/work/product-junior-product-specialist"><span class="vdark_un">Junior Product Specialist</span></a><h4 class="offers-category">BUSINESS DEVELOPMENT</h4><a class="sub-menu__item js-submenu-item" href="/work/business-development-business-development-director"><span class="vdark_un">Business Development Director</span></a><h4 class="offers-category">PRODUCERS</h4><a class="sub-menu__item js-submenu-item" href="/work/producers-producer"><span class="vdark_un">Producer</span></a><h4 class="offers-category">MARKETING</h4><a class="sub-menu__item js-submenu-item" href="/work/marketing-product-manager-uk"><span class="vdark_un">Product Manager - UK</span></a><h4 class="offers-category">FINANCE</h4><a class="sub-menu__item js-submenu-item" href="/work/finance-finance-specialist"><span class="vdark_un">Finance Specialist</span></a><h4 class="offers-category">IT</h4><a class="sub-menu__item js-submenu-item" href="/work/it-it-administrator"><span class="vdark_un">IT Administrator</span></a><a class="sub-menu__item js-submenu-item" href="/work/it-junior-it-monitoring-administrator"><span class="vdark_un">Junior IT Monitoring Administrator</span></a><h4 class="offers-category">HR</h4><a class="sub-menu__item js-submenu-item" href="/work/hr-hr-specialist"><span class="vdark_un">HR Specialist</span></a><h4 class="offers-category">SUPPORT</h4><a class="sub-menu__item js-submenu-item" href="/work/support-customer-support-representative-french"><span class="vdark_un">Customer Support Representative - French</span></a><a class="sub-menu__item js-submenu-item" href="/work/support-customer-support-representative-japanese"><span class="vdark_un">Customer Support Representative - Japanese</span></a><a class="sub-menu__item js-submenu-item" href="/work/support-customer-support-representative-russian"><span class="vdark_un">Customer Support Representative - Russian</span></a><a class="sub-menu__item js-submenu-item" href="/work/support-part-time-customer-support-representative-russian"><span class="vdark_un">Part-time Customer Support Representative - Russian</span></a></div><div class="sub-menu"><div class="sub-menu__item sub-menu__item--text"><b>Haven't found a vacancy that fits your skills?</b></div><div class="sub-menu__item sub-menu__item--text">
+                                Send us your CV anyway… you never know what opportunities lie ahead. Make sure that you give us some hints why you fit our company perfectly!
+                            </div><a href="https://system.erecruiter.pl/FormTemplates/RecruitmentForm.aspx?WebID=7804665ced4242ab8862dd540207f52b"
+                               class="btn btn--blue sub-menu__button"
+                            >
+                                Apply
+                            </a></div><div class="sub-menu"><a class="sub-menu__item sub-menu__item--text-left" href="http://en.cdprojektred.com/jobs/" target="_blank"><b>CD PROJEKT RED is hiring</b></a><a class="sub-menu__item sub-menu__item--text-left" href="http://en.cdprojektred.com/jobs/" target="_blank">
+                                Check the job offers at <span class="vdark_un">cdprojektred.com</span> and join the teams working on:
+                            </a><br><a class="sub-menu__item sub-menu__item--text-left" href="http://en.cdprojektred.com/jobs/" target="_blank"><img src="//www4-static1.gog.com/bundles/gogwebsitework/img/logos-cdpred.png" alt=""></a></div></div><div class="offers"><div class="single"><div class="offer-header-category">
+            GALAXY
+        </div><h1>Senior Software Engineer - Desktop (C++)</h1><div class="offer__social"><div class="fb-like"
+                 data-href="https://www.gog.com/work/galaxy-senior-software-engineer-desktop-cpp"
+                 data-send="false"
+                 data-layout="button_count"
+                 data-width="450"
+                 data-show-faces="false"
+                 data-font="arial"
+            ></div><a href="https://twitter.com/share"
+               class="twitter-share-button"
+               data-url="https://www.gog.com/work/galaxy-senior-software-engineer-desktop-cpp"
+               data-text="GOG.com is looking for Senior Software Engineer - Desktop (C++). Details:"
+               data-related="gogcom"
+            ></a></div><p>We are currently working on some new challenging projects and due to this, we are looking for passionate Software Engineers to enhance our extraordinary team. Join us in building the best online services and desktop features for our sister game-development studio CD Projekt RED and other partners. This position will allow you to shape the future of the GOG.com.</p><h2>Responsibilities:</h2><ul><li>Shape the future of GOG Galaxy multi-platform desktop app, used by millions of gamers.</li><li>Implement and own major features.</li><li>Maintain and optimize subsystems of existing applications.</li><li>Work with other engineers in SCRUM methodology and mentor team members.</li><li>Stay abreast of emerging new technologies, research new tools and implement best practices.</li></ul><h2>Job Requirements:</h2><ul><li>Deep knowledge of C++.</li><li>At least 3 years experience as a C++ programmer.</li><li>Experience in developing desktop applications on various platforms (including at least 2 of the following: Windows, Mac OS X and Linux).</li><li>Experience with multithreaded programming.</li><li>Excellent system architecture skills.</li><li>Fluency in spoken and written English.</li></ul><h2>Pluses:</h2><ul><li>Experience in working with various multi-platform UI toolkits (for example: Qt, wxWidgets).</li><li>Knowledge of CMake, Python, Git, Protobuf.</li><li>Knowledge of web-related technologies: HTTP protocol, HTML, JavaScript, CSS, CoffeeScript, AngularJS.</li><li>Passion for gaming, game services and online communities.</li></ul><h2>What we offer:</h2><ul><li>A unique opportunity to enter a booming industry and to influence the future of digital distribution.</li><li>A gamer’s paradise where you will be surrounded by games - living &amp; breathing them!</li><li>A competitive salary and great, laid-back work atmosphere in our office based in Warsaw, Poland.</li><li>The chance to work in an international environment with exceptional experts.</li><li>A Profit Sharing Program after 6 months of work, where employees share 10 % of GOG.com's net profit (paid out once a year).</li><li>Access to a health care and sport activities package.</li><li>A full-time job in our Warsaw, Poland headquarters.</li><li>A relocation package for foreigners as well as assistance from our HR throughout the whole process.</li><li>Polish lessons should you need them.</li><li>Frequent social activities, free fruits, an in-house cantina, and other goodies are a standard.</li><li>Free access to CD PROJEKT RED &amp; GOG.com games.</li></ul><div class="with-space"><p>If you think you’ve got what it takes, please submit your CV (in English) and code samples below.</p></div><a class="btn btn--blue offers__apply" href="https://system.erecruiter.pl/FormTemplates/RecruitmentForm.aspx?WebID=ca00dec0b04c4812a2a0a6bad0921be6">Apply</a><div class="with-space small"><p><strong>Please be informed that we reserve the right to contact only selected applicants. The hired individual will need to work in-house, in our office based in Warsaw, Poland.</strong></p><p>Please also include the following statement with your application: &quot;I hereby consent to the processing of my vital and personal data in so far as this is required under the current as well as future recruitment campaigns conducted by GOG Poland Sp. z o.o., with headquarters in Warsaw, Jagiellońska 74 street, in accordance with the Act of August 29, 1997, on the Protection of Personal Information (JoL no. 133, item 883).&quot;</p></div></div></div><!-- offers --></div><div class="footer-spacer"></div></div><!--content--><footer class="main-footer"><div class="container cf footer-wrapper"><div class="main-footer__left"><ul class="main-footer__main-ul"><li><a class="main-ul__link" href="/redeem">
+                        Redeem code
+                    </a></li><li><a class="main-ul__link" href="/reclaim">
+                        Reclaim your game
+                    </a></li><li><a class="main-ul__link" href="https://support.gog.com/hc/">
+                        Contact us
+                    </a></li><li><a class="main-ul__link" href="/work">
+                        career opportunities
+                    </a></li><li><a class="main-ul__link" href="/indie">
+                        Submit your game
+                    </a></li></ul></div><div class="main-footer__right"><div class="__right__lang" ng-controller="footerLanguageCtrl" ng-cloak><span class="__right__span">Language:</span><div class="_dropdown is-contracted footer__dropdown" gog-dropdown><div class="_dropdown__toggle"><span ng-bind="languageToShow"></span><span class="_dropdown__pointer-wrapper"><i class="ic icon-dropdown-down footer-dropdown-down"></i><i class="_dropdown__pointer-up"></i></span></div><div class="_dropdown__items footer__dropdown-items" ng-show="languages"><div class="_dropdown__item footer__dropdown-item"
+                                     ng-repeat="language in languages"
+                                     ng-click="changeLanguage(language.code)"
+                                     ng-bind="language.name"
+                                ></div></div></div></div><div class="__right__currency" ng-controller="footerCurrencyCtrl" ng-cloak><span class="__right__span">Currency:</span><div class="_dropdown is-contracted footer__dropdown" 
+                        gog-dropdown
+                    ><div class="_dropdown__toggle"><span ng-bind="currencyToShow"></span><span class="_dropdown__pointer-wrapper"><i class="ic icon-dropdown-down footer-dropdown-down"></i><i class="_dropdown__pointer-up"></i></span></div><div class="_dropdown__items footer__dropdown-items"><div class="_dropdown__item footer__dropdown-item"
+                                 ng-repeat="currency in currencies"
+                                 ng-click="changeCurrency(currency)"
+                                 ng-bind="currency.code"
+                            ></div></div></div></div></div></div><hr class="main-footer__hr" /><div class="main-footer__site-map__wrapper container cf"><!-- SITEMAP ELEMENT --><div class="main-footer__sitemap"><a class="main-footer__sitemap-link" href="/games?sort=bestselling&price=discounted&page=1">Games</a><ul class="sitemap-list"><li><a class="sitemap-item" href="/games?sort=bestselling&price=discounted&page=1">ON SALE</a></li><li><a class="sitemap-item" href="/games?sort=bestselling&page=1">BESTSELLERS</a></li><li><a class="sitemap-item" href="/games?sort=date&page=1">Newest releases</a></li><li><a class="sitemap-item" href="/games?sort=rating&page=1">Top rated</a></li></ul></div><!-- SITEMAP ELEMENT --><!-- SITEMAP ELEMENT --><div class="main-footer__sitemap"><a class="main-footer__sitemap-link" href="/movies?sort=bestselling&price=discounted&page=1">Movies</a><ul class="sitemap-list"><li><a class="sitemap-item" href="/movies?sort=bestselling&price=discounted&page=1">ON SALE</a></li><li><a class="sitemap-item" href="/movies?sort=bestselling&page=1">BESTSELLERS</a></li><li><a class="sitemap-item" href="/movies?sort=date&page=1">Newest releases</a></li><li><a class="sitemap-item" href="/movies?sort=rating&page=1">Top rated</a></li><li><a class="sitemap-item" href="mailto:welovemovies@gog.com">Submit your movie</a></li></ul></div><!-- SITEMAP ELEMENT --><!-- SITEMAP ELEMENT --><div class="main-footer__sitemap"><a class="main-footer__sitemap-link" href="/support">Support</a><ul class="sitemap-list"><li><a class="sitemap-item" href="/support/website_help">Website FAQ</a></li><li><a class="sitemap-item" href="https://support.gog.com/hc/categories/201400969">Games support</a></li><li><a class="sitemap-item" href="/support/policies">Policies</a></li><li><a class="sitemap-item" href="https://support.gog.com/hc/">Contact us</a></li></ul></div><!-- SITEMAP ELEMENT --><!-- SITEMAP ELEMENT --><div class="main-footer__sitemap"><a class="main-footer__sitemap-link" href="/account">My Account</a><ul class="sitemap-list"><li><a class="sitemap-item" href="/account">My library</a></li><li><a class="sitemap-item" href="/account/settings"
+                    gog-href-swapper="/account/settings/orders"
+                    gog-css-data
+                >
+                    Orders &amp; Settings
+                    <var class="css-data-holder css-data-holder--user-settings"></var></a></li></ul></div><!-- SITEMAP ELEMENT --><!-- SITEMAP ELEMENT --><div class="main-footer__sitemap"><a class="main-footer__sitemap-link" href="/forum">Community</a><ul class="sitemap-list"><li><a class="sitemap-item" href="/forum">Forums</a></li><li><a class="sitemap-item" href="/wishlist">Community wishlist</a></li></ul></div><!-- SITEMAP ELEMENT --></div><!-- SOCIAL BUTTONS --><div class="main-footer__socials container"><div class="socials__buttons cf"><a href="https://facebook.com/gogcom" class="main-footer__social-button"><i class="ic icon-facebook footer-fb dark-social"></i>
+    Facebook
+</a><span>&nbsp;</span><a href="https://twitter.com/gogcom" class="main-footer__social-button"><i class="ic icon-twitter footer-twitter dark-social"></i>
+    Twitter
+</a><span>&nbsp;</span><a href="https://plus.google.com/+gog" class="main-footer__social-button"><i class="ic icon-googleplus footer-gplus dark-social"></i>
+    Google Plus
+</a><span>&nbsp;</span><a href="http://gogcom.tumblr.com/" class="main-footer__social-button"><i class="ic icon-tumblr footer-tumblr dark-social"></i>
+    Tumblr
+</a><span>&nbsp;</span><a href="https://www.youtube.com/user/GOGcom" class="main-footer__social-button"><i class="ic icon-youtube footer-youtube dark-social"></i>
+    Youtube
+</a><span>&nbsp;</span><a href="http://www.twitch.tv/gogcom" class="main-footer__social-button"><i class="ic icon-twitch footer-twitch dark-social"></i>
+    Twitch
+</a><span>&nbsp;</span><a href="http://www.reddit.com/domain/gog.com/" class="main-footer__social-button"><i class="ic icon-reddit footer-reddit dark-social"></i>
+    Reddit
+</a><span>&nbsp;</span><a href="feed://www.gog.com/frontpage/rss" class="main-footer__social-button"><i class="ic icon-rss footer-rss dark-social"></i>
+    Rss
+</a><span>&nbsp;</span><div class="social-strecher"></div></div></div><!-- SOCIAL BUTTONS --><div class="main-footer__dark-footer"><div class="container cf"><ul class="dark-footer__ul"><li><a class="datk-footer-link" href="/support/policies/">
+                            Legal
+                        </a></li>&nbsp;
+                    <li><a class="datk-footer-link" href="/cookies">
+                            Cookie Policy
+                        </a></li><li><a class="datk-footer-link" href="/thanks">
+                            Our thanks
+                        </a></li>&nbsp;
+                    <li class="dark-footer__strecher">&nbsp;</li>&nbsp;
+                </ul><div class="dark-footer__copyrights">
+                    GOG.com © 2017.
+                    Part of <a href="https://www.cdprojekt.com/"><div class="dark-footer__logo"></div></a> group.
+                </div></div></div></footer></div><!-- wrapper  --></div><!-- universe --><script type="text/javascript">
+        var gogData = {"anonymous_personalization":true,"currentCurrency":{"code":"PLN","symbol":"z\u0142"},"availableCurrencies":[{"code":"PLN","symbol":"z\u0142"},{"code":"EUR","symbol":"\u20ac"},{"code":"USD","symbol":"$"}],"currentLanguage":"en","availableLanguages":[{"code":"en","name":"English"},{"code":"de","name":"Deutsch"},{"code":"fr","name":"Fran\u00e7ais"},{"code":"ru","name":"P\u0443\u0441\u0441\u043a\u0438\u0439"},{"code":"pt","name":"Portugu\u00eas do Brasil"}],"dateFormats":{"tiny":"d MMM"},"now":1486550037,"currentCountry":"PL","personalizationEndpointCacheTtl":0};
+        var translationData = {"diff.now":"just now","diff.ago.minute":"1 minute ago|%count% minutes ago","diff.ago.hour":"an hour ago|%count% hours ago","diff.ago.day":"yesterday|%count% days ago","diff.ago.week":"week ago|%count% weeks ago","months":{"1":"January","2":"February","3":"March","4":"April","5":"May","6":"June","7":"July","8":"August","9":"September","10":"October","11":"November","12":"December"}};
+        
+        
+
+                gogData.env = "prod_atm";
+                gogData.mode = "native";
+        
+    </script><script>
+    window.dataLayer = [{
+        'langDrop': 'en',
+        'currDrop': 'PLN',
+        'pageType': 'Other',
+        'pageCategory': 'NA',
+        'pageSection': 'Other'
+    }];
+</script><script>
+            var _rollbarConfig = {
+                accessToken: "e2281805b5684fe7a42c99cec7a54764",
+                captureUncaught: true,
+                payload: {
+                    environment: gogData.env,
+                    mode: gogData.mode
+                },
+                async:false
+            };
+        </script><script src="//www4-static4.gog.com/js/common-38b4b09.js" crossorigin="anonymous"></script><script type="text/javascript">
+        var galaxyAccounts = new GalaxyAccounts('https://auth.gog.com/auth?client_id=46755278331571209&redirect_uri=https%3A%2F%2Fwww.gog.com%2Fon_login_success&response_type=code&layout=default&brand=gog','https://login.gog.com');
+    </script><script src="//www4-static4.gog.com/js/work-616a02b.js" crossorigin="anonymous"></script><!--gogcomisupandrunningwithoutaproblem--></body></html>
